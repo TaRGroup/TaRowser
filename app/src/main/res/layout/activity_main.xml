@@ -28,14 +28,10 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:contentInsetStart="0dp"
             android:contentInsetLeft="0dp"
             android:contentInsetRight="0dp"
-            android:contentInsetEnd="0dp"
             app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
             app:contentInsetRight="0dp"
-            app:contentInsetEnd="0dp"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.v7.widget.CardView>
