@@ -13,11 +13,26 @@
         android:hint="@string/input_hint"
         android:textColor="#000000"
         android:textColorHint="#606060"
+        android:inputType="textUri"
         android:background="#FFFFFF"
         android:gravity="center|left"
         android:padding="8dp"
         android:layout_margin="8dp"
         android:textSize="14sp"
-        android:focusable="false"/>
+        android:focusable="true"
+        android:elevation="1dp"/>
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/toolbar_dismiss"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@mipmap/ic_close"
+        android:background="@color/colorPrimary"
+        android:scaleType="fitXY"
+        android:foregroundGravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="0dp"/>
 
 </LinearLayout>

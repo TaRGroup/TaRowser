@@ -19,7 +19,7 @@ public class MainContentFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View main_layout = inflater.inflate(R.layout.content_main, container, false);
-        return main_layout;
+        View mainLayout = inflater.inflate(R.layout.content_main, container, false);
+        return mainLayout;
     }
 }
