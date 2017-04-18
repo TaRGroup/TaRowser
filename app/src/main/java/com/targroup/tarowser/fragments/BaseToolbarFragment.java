@@ -10,5 +10,12 @@ import com.targroup.tarowser.interfaces.ViewDefineInterface;
  */
 
 public abstract class BaseToolbarFragment extends Fragment {
-    public abstract void setInterface (ViewDefineInterface viewDefineInterface);
+    ViewDefineInterface viewDefineInterface;
+    public void setInterface (ViewDefineInterface viewDefineInterface) {
+        this.viewDefineInterface = viewDefineInterface;
+    }
+
+    public ViewDefineInterface getInterface() {
+        return viewDefineInterface;
+    }
 }

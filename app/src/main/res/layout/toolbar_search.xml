@@ -22,17 +22,16 @@
         android:focusable="true"
         android:elevation="1dp"/>
 
-    <android.support.v7.widget.AppCompatImageButton
+    <ImageButton
         android:id="@+id/toolbar_dismiss"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@mipmap/ic_close"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:foregroundGravity="center"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginLeft="0dp"/>
+        android:layout_marginLeft="0dp" />
 
 </LinearLayout>

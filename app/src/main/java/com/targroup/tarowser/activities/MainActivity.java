@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements ViewDefineInterfa
                     @Override
                     public void onClick(View v) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commit();
-                        // TODO:点击事件…被吃了？
                     }
                 });
                 break;

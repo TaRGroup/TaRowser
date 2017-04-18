@@ -13,7 +13,6 @@ import android.support.transition.ChangeBounds;
 import android.support.transition.TransitionManager;
 
 import com.targroup.tarowser.R;
-import com.targroup.tarowser.interfaces.ViewDefineInterface;
 
 /**
  * Created by Rachel on 2017/4/15.
@@ -22,8 +21,6 @@ import com.targroup.tarowser.interfaces.ViewDefineInterface;
 
 public class MainToolbarFragment extends BaseToolbarFragment {
     public EditText search;
-
-    ViewDefineInterface viewDefineInterface;
 
     @Nullable
     @Override
@@ -34,7 +31,7 @@ public class MainToolbarFragment extends BaseToolbarFragment {
         final Transition searchTransition = new ChangeBounds();
 
         search = (EditText) toolbarLayout.findViewById(R.id.toolbar_search);
-        viewDefineInterface.onViewDefined(search);
+        getInterface().onViewDefined(search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,9 +39,5 @@ public class MainToolbarFragment extends BaseToolbarFragment {
             }
         });
         return toolbarLayout;
-    }
-    @Override
-    public void setInterface(ViewDefineInterface viewDefineInterface) {
-        this.viewDefineInterface = viewDefineInterface;
     }
 }

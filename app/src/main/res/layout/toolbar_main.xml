@@ -18,6 +18,7 @@
         android:padding="8dp"
         android:layout_margin="8dp"
         android:textSize="14sp"
-        android:focusable="false"/>
+        android:focusable="false"
+        android:elevation="1dp"/>
 
 </LinearLayout>
