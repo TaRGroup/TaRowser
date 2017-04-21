@@ -28,7 +28,7 @@ public class MainToolbarFragment extends BaseToolbarFragment {
         View toolbarLayout = inflater.inflate(R.layout.toolbar_main, container, false);
 
         final Scene searchScene = Scene.getSceneForLayout(container, R.layout.toolbar_search, getActivity());
-        final Transition searchTransition = new ChangeBounds();
+        final Transition searchTransition = new ChangeBounds().setDuration(150);
 
         search = (EditText) toolbarLayout.findViewById(R.id.toolbar_search);
         getInterface().onViewDefined(search);

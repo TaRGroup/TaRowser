@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.content.Context;
+import android.widget.ImageButton;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -52,17 +53,17 @@ public class MainActivity extends AppCompatActivity implements ViewDefineInterfa
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.toolbar, searchToolbarFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.toolbar, searchToolbarFragment).commitAllowingStateLoss();
                         ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
                         // TODO:给！我！ Show！ keyboard！ 在这里也好 在 SearchToolbarFragment 也好
                     }
                 });
                 break;
             case R.id.toolbar_dismiss:
-                v.setOnClickListener(new View.OnClickListener() {
+                v.setOnClickListener(new ImageButton.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commitAllowingStateLoss();
                     }
                 });
                 break;
