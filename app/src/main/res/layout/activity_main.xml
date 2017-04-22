@@ -11,7 +11,8 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:clickable="true"/>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -36,7 +37,9 @@
             app:contentInsetRight="0dp"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+            </android.support.v7.widget.Toolbar>
 
     </android.support.v7.widget.CardView>
 

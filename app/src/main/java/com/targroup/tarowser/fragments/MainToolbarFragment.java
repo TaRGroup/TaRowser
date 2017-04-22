@@ -20,15 +20,26 @@ import com.targroup.tarowser.R;
  */
 
 public class MainToolbarFragment extends BaseToolbarFragment {
-    public EditText search;
+    EditText search;
+
+    View toolbarLayout;
+    Scene searchScene;
+    Transition searchTransition;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View toolbarLayout = inflater.inflate(R.layout.toolbar_main, container, false);
+        toolbarLayout = inflater.inflate(R.layout.toolbar_main, container, false);
 
-        final Scene searchScene = Scene.getSceneForLayout(container, R.layout.toolbar_search, getActivity());
-        final Transition searchTransition = new ChangeBounds().setDuration(150);
+        searchScene = Scene.getSceneForLayout(container, R.layout.toolbar_search, getActivity());
+        searchTransition = new ChangeBounds().setDuration(150);
+
+        return toolbarLayout;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         search = (EditText) toolbarLayout.findViewById(R.id.toolbar_search);
         getInterface().onViewDefined(search);
@@ -36,8 +47,8 @@ public class MainToolbarFragment extends BaseToolbarFragment {
             @Override
             public void onClick(View v) {
                 TransitionManager.go(searchScene,searchTransition);
+                android.util.Log.e("ONCLICK","here we get in Fragment");
             }
         });
-        return toolbarLayout;
     }
 }

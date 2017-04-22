@@ -24,25 +24,35 @@ public class SearchToolbarFragment extends BaseToolbarFragment {
     EditText search;
     ImageButton dismiss;
 
+    View searchLayout;
+    Scene mainScene;
+    Transition mainTransition;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View searchLayout = inflater.inflate(R.layout.toolbar_search, container, false);
+        searchLayout = inflater.inflate(R.layout.toolbar_search, container, false);
 
-        final Scene mainScene = Scene.getSceneForLayout(container, R.layout.toolbar_main, getActivity());
-        final Transition mainTransition = new ChangeBounds().setDuration(150);
+        mainScene = Scene.getSceneForLayout(container, R.layout.toolbar_main, getActivity());
+        mainTransition = new ChangeBounds().setDuration(150);
+
+        return searchLayout;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         search = (EditText) searchLayout.findViewById(R.id.toolbar_search);
         search.requestFocus();
 
         dismiss = (ImageButton) searchLayout.findViewById(R.id.toolbar_dismiss);
         getInterface().onViewDefined(dismiss);
-        dismiss.setOnClickListener(new ImageButton.OnClickListener() {
+        dismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TransitionManager.go(mainScene, mainTransition);
             }
         });
-        return searchLayout;
     }
 }
