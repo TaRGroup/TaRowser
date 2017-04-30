@@ -41,40 +41,39 @@ public class MainActivity extends AppCompatActivity {
         container = (FrameLayout) findViewById(R.id.fragment_container);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        ViewDefineListener listener = new ViewDefineListener();
         mainToolbarFragment = new MainToolbarFragment();
-        mainToolbarFragment.setInterface(new ViewDefineListener());
         searchToolbarFragment = new SearchToolbarFragment();
-        searchToolbarFragment.setInterface(new ViewDefineListener());
 
         fragmentManager = getSupportFragmentManager();
 
         fragmentManager.beginTransaction().add(R.id.fragment_container,new MainContentFragment()).add(R.id.toolbar, mainToolbarFragment).commit();
+
+        mainToolbarFragment.setInterface(listener);
+        searchToolbarFragment.setInterface(listener);
     }
 
     public class ViewDefineListener implements ViewDefineInterface {
         @Override
         public void onViewDefined(View v) {
             android.util.Log.e("ONCLICK", "get passed view " + v.getId() + " and search is " + R.id.toolbar_search);
-            // TODO: switch 有问题
-            switch (v.getId()) {
-                case R.id.toolbar_search:
-                    v.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            android.util.Log.e("ONCLICK","here we get in Activity");
-                            fragmentManager.beginTransaction().replace(R.id.toolbar, searchToolbarFragment).addToBackStack(null).commit();
-                            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
-                        }
-                    });
-                    break;
-                case R.id.toolbar_dismiss:
-                    v.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            fragmentManager.beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commit();
-                        }
-                    });
-                    break;
+            Integer id = v.getId();
+            if (id.equals(R.id.toolbar_search)) {
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        android.util.Log.e("ONCLICK","here we get in Activity");
+                        fragmentManager.beginTransaction().replace(R.id.toolbar, searchToolbarFragment).addToBackStack(null).commit();
+                        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    }
+                });
+            } if (id.equals(R.id.toolbar_dismiss)) {
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        fragmentManager.beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commit();
+                    }
+                });
             }
         }
     }

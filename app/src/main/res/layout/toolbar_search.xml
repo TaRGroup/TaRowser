@@ -24,10 +24,11 @@
 
     <ImageButton
         android:id="@+id/toolbar_dismiss"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:src="@mipmap/ic_close"
         android:scaleType="fitXY"
+        android:background="@android:color/transparent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
