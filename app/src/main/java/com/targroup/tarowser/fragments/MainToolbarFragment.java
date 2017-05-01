@@ -38,8 +38,8 @@ public class MainToolbarFragment extends BaseToolbarFragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onResume() {
+        super.onResume();
 
         search = (EditText) toolbarLayout.findViewById(R.id.toolbar_search);
         getInterface().onViewDefined(search);

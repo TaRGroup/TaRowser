@@ -57,23 +57,26 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onViewDefined(View v) {
             android.util.Log.e("ONCLICK", "get passed view " + v.getId() + " and search is " + R.id.toolbar_search);
-            Integer id = v.getId();
-            if (id.equals(R.id.toolbar_search)) {
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        android.util.Log.e("ONCLICK","here we get in Activity");
-                        fragmentManager.beginTransaction().replace(R.id.toolbar, searchToolbarFragment).addToBackStack(null).commit();
-                        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
-                    }
-                });
-            } if (id.equals(R.id.toolbar_dismiss)) {
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        fragmentManager.beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commit();
-                    }
-                });
+            switch (v.getId()) {
+                case R.id.toolbar_search:
+                    v.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            android.util.Log.e("ONCLICK","here we get search in Activity");
+                            fragmentManager.beginTransaction().replace(R.id.toolbar, searchToolbarFragment).commit();
+                            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+                        }
+                    });
+                    break;
+                case R.id.toolbar_dismiss:
+                    android.util.Log.e("ONCLICK","here we get dismiss in Activity");
+                    v.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            fragmentManager.beginTransaction().replace(R.id.toolbar, mainToolbarFragment).commit();
+                        }
+                    });
+                    break;
             }
         }
     }
